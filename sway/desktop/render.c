@@ -1409,7 +1409,7 @@ static void render_containers_linear(struct sway_output *output,
 			bool has_titlebar = state->border == B_NORMAL;
 
 			struct decoration_data deco_data = {
-				.alpha = child->alpha,
+				.alpha = child->current_alpha,
 				.dim_color = view_is_urgent(view)
 						? config->dim_inactive_colors.urgent
 						: config->dim_inactive_colors.unfocused,
@@ -1459,7 +1459,7 @@ static void render_containers_tabbed(struct sway_output *output,
 	int tab_width = parent->box.width / parent->children->length;
 
 	struct decoration_data deco_data = {
-		.alpha = current->alpha,
+		.alpha = current->current_alpha,
 		.dim_color = view_is_urgent(current->view)
 				? config->dim_inactive_colors.urgent
 				: config->dim_inactive_colors.unfocused,
@@ -1556,7 +1556,7 @@ static void render_containers_stacked(struct sway_output *output,
 	size_t titlebar_height = container_titlebar_height();
 
 	struct decoration_data deco_data = {
-		.alpha = current->alpha,
+		.alpha = current->current_alpha,
 		.dim_color = view_is_urgent(current->view)
 				? config->dim_inactive_colors.urgent
 				: config->dim_inactive_colors.unfocused,
@@ -1706,7 +1706,7 @@ static void render_floating_container(struct sway_output *soutput,
 
 		bool has_titlebar = state->border == B_NORMAL;
 		struct decoration_data deco_data = {
-			.alpha = con->alpha,
+			.alpha = con->current_alpha,
 			.dim_color = view_is_urgent(view)
 					? config->dim_inactive_colors.urgent
 					: config->dim_inactive_colors.unfocused,
@@ -1939,7 +1939,7 @@ void output_render(struct sway_output *output, struct timespec *when,
 	struct sway_container *focus = seat_get_focused_container(seat);
 	if (focus && focus->view) {
 		struct decoration_data deco_data = {
-			.alpha = focus->alpha,
+			.alpha = focus->current_alpha,
 			.dim_color = view_is_urgent(focus->view)
 					? config->dim_inactive_colors.urgent
 					: config->dim_inactive_colors.unfocused,
