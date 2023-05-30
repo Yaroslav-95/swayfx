@@ -19,6 +19,7 @@ Sway is an incredible window manager, and certainly one of the most well establi
 
 ## New Configuration Options
 
++ Fade in / out animations: `animation_duration <val>`: specifies the length of the animation in seconds
 + Corner radius: `corner_radius <val>`
 + Smart corner radius: `smart_corner_radius enable|disable`
 + Window shadows:
@@ -50,7 +51,6 @@ Sway is an incredible window manager, and certainly one of the most well establi
 
 ## Roadmap
 
-+ fade in / out animations
 + window movement animations
 
 ## Installation
@@ -113,4 +113,3 @@ Here's a quick outline of where most of our changes lie vs the main sway reposit
 + `sway/desktop/render.c`: the file that handles calling `fx_renderer` to render to the screen, handles damage tracking and scaling
 + `sway/desktop/fx_renderer.c`: the meat and potatoes of this project, structured as similarly to wlr_renderer as possible
 + `sway/desktop/shaders`: where all of the shaders that fx_renderer uses live
-
